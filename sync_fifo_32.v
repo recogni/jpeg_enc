@@ -31,7 +31,7 @@
 ////                                                             ////
 /////////////////////////////////////////////////////////////////////
 
-`timescale 1ns / 100ps
+
 
 module sync_fifo_32 (clk, rst, read_req, write_data, write_enable, 
 read_data, fifo_empty, rdata_valid);

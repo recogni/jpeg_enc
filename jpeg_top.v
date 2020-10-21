@@ -41,8 +41,6 @@ are less than 32 valid JPEG bits in the bitstream.  The number of valid bits in 
 last JPEG_bitstream value is written to the signal "end_of_file_bitstream_count".
 */
 
-`timescale 1ns / 100ps
-
 module jpeg_top(clk, rst, end_of_file_signal, enable, data_in, JPEG_bitstream, 
 data_ready, end_of_file_bitstream_count, eof_data_partial_ready);
 input		clk;

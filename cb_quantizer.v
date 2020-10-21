@@ -36,7 +36,7 @@ performing the 2D DCT are inputs to this quantization module.  This module quant
 the entire 8x8 block of Cb values.  The outputs from this module
 are the quantized Cb values for one 8x8 block. */
 
-`timescale 1ns / 100ps
+
 
 module cb_quantizer(clk, rst, enable,
 Z11, Z12, Z13, Z14, Z15, Z16, Z17, Z18, Z21, Z22, Z23, Z24, Z25, Z26, Z27, Z28,

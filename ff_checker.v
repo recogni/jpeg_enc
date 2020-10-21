@@ -37,7 +37,7 @@ the bitstream.  When it finds an FF in the bitstream, this module puts a 00 afte
 and then continues with the rest of the bitstream after the 00, per the JPEG standard.
 */
 
-`timescale 1ns / 100ps
+
 
 module ff_checker(clk, rst, end_of_file_signal, JPEG_in, data_ready_in, orc_reg_in,
 JPEG_bitstream_1, data_ready_1, orc_reg, eof_data_partial_ready);

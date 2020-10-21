@@ -37,7 +37,7 @@ write the y, cb, and cr data while it's processing the data.  The output
 of this module goes to the input of the ff_checker module, to check for
 any FF's in the bitstream.
 */
-`timescale 1ns / 100ps
+
 
 module fifo_out(clk, rst, enable, data_in, JPEG_bitstream, data_ready, orc_reg);
 input		clk, rst, enable;

@@ -43,7 +43,7 @@ Then the Discrete Cosine Transform is performed by multiplying the 8x8 pixel blo
 by the 8x8 DCT matrix. */
 
 
-`timescale 1ns / 100ps
+
 
 module cr_dct(clk, rst, enable, data_in,
 Z11_final, Z12_final, Z13_final, Z14_final, Z15_final, Z16_final, Z17_final, Z18_final,

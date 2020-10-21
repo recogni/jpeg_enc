@@ -35,7 +35,7 @@
 /* This module combines the Y, Cb, and Cr blocks, and the RGB to Y, Cb, and Cr
 converter. */
 
-`timescale 1ns / 100ps
+
 
 module pre_fifo(clk, rst, enable, data_in, cr_JPEG_bitstream, cr_data_ready, 
 cr_orc, cb_JPEG_bitstream, cb_data_ready, cb_orc, y_JPEG_bitstream, 

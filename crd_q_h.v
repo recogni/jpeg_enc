@@ -33,7 +33,7 @@
 
 /* This module combines the dct, quantizer, and huffman modules. */
 
-`timescale 1ns / 100ps
+
 
 module crd_q_h(clk, rst, enable, data_in,
 JPEG_bitstream, data_ready, cr_orc,  

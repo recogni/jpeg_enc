@@ -39,7 +39,7 @@ and Blue in bits [23:16].
 data_out contains the Y value in bits [7:0], Cb value in bits [15:8],
 and Cr balue in bits [23:16].*/
 
-`timescale 1ns / 100ps
+
 
 module RGB2YCBCR(clk, rst, enable, data_in, data_out,
 enable_out);

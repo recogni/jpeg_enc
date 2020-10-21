@@ -32,7 +32,7 @@
 /////////////////////////////////////////////////////////////////////
 
 
-`timescale 1ps / 1ps
+
 
 module jpeg_top_tb;
 
@@ -65,8 +65,10 @@ wire eof_data_partial_ready;
 
 initial
 begin : STIMUL 
+	$dumpvars;
 	#0
 	rst = 1'b1;
+
 	enable = 1'b0;
 	end_of_file_signal = 1'b0;
     #10000; 
@@ -18954,6 +18956,8 @@ enable <= 1'b1;
 end_of_file_signal  <= 1'b1;
 data_in <= 24'b000101100010001000101100;
 #10000;
+end_of_file_signal  <= 1'b0;
+
 data_in <= 24'b000110000010010000101110;
 #10000;
 data_in <= 24'b000101100010010100101110;

@@ -37,7 +37,7 @@ output from this module is the jpeg code of the actual pixel data.  The jpeg
 file headers will need to be generated separately.  The Huffman codes are constant, 
 and they can be changed by changing the parameters in this module. */
 
-`timescale 1ns / 100ps
+
 		
 module cr_huff(clk, rst, enable,
 Cr11, Cr12, Cr13, Cr14, Cr15, Cr16, Cr17, Cr18, Cr21, Cr22, Cr23, Cr24, Cr25, Cr26, Cr27, Cr28,

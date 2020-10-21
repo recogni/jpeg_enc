@@ -37,7 +37,7 @@ output from this module is the jpeg code of the actual pixel data.  The jpeg
 file headers will need to be generated separately.  The Huffman codes are constant, 
 and they can be changed by changing the parameters in this module. */
 
-`timescale 1ns / 100ps
+
 		
 module y_huff(clk, rst, enable,
 Y11, Y12, Y13, Y14, Y15, Y16, Y17, Y18, Y21, Y22, Y23, Y24, Y25, Y26, Y27, Y28,
