@@ -10,7 +10,6 @@ jpeg_enc:
         - crd_q_h.v
         - ff_checker.v
         - fifo_out.v
-        - ja_bits_out.v
         - pre_fifo.v
         - rgb2ycbcr.v
         - sync_fifo_32.v
@@ -20,3 +19,4 @@ jpeg_enc:
         - y_quantizer.v
         - yd_q_h.v
         - jpeg_top.v
+        - jpeg_top_wrap.sv
