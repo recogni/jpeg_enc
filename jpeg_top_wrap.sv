@@ -51,7 +51,8 @@ module jpeg_top_wrap (
     localparam PROCESSING = 2;
     localparam END_PROCESSING = 3;
 
-    always_ff @(posedge clk) write_state <= rst ? IDLE : write_state_next;
+    always_ff @(posedge clk) write_state    <= rst ? IDLE : write_state_next;
+    always_ff @(posedge clk) pixel_counter  <= pixel_counter_next;
 
     always_comb begin
         write_state_next   = write_state;
