@@ -163,7 +163,6 @@ module jpeg_top_wrap (
     //
     // A fixed threshold interrupt indicates a FIFO level
     logic [4:0] rd_depth;
-    logic [4:0] eof_bit_count;
 
     fifo_v3 #(
         .DATA_WIDTH(32),   // default data width if the fifo is of type logic
