@@ -164,6 +164,8 @@ module jpeg_top_wrap (
     // A fixed threshold interrupt indicates a FIFO level
     logic [4:0] rd_depth;
 
+    logic read_d;
+
     fifo_v3 #(
         .DATA_WIDTH(32),   // default data width if the fifo is of type logic
         .DEPTH(32)
@@ -181,7 +183,7 @@ module jpeg_top_wrap (
         .push_i       ( data_ready && jpeg_clk_en_d ),           // data is valid and can be pushed to the queue
         // as long as the queue is not empty we can pop new elements
         .data_o       ( fifo_data  ),           // output data
-        .pop_i        ( ~rd_empty && decode_fifo && slv.req && (slv.wen == READ) && slv.r_valid )            // pop head from queue
+        .pop_i        ( ~rd_empty && read_d && slv.r_valid )            // pop head from queue
     );
 
     jpeg_top i_jtag_top (
@@ -207,6 +209,10 @@ module jpeg_top_wrap (
     assign decode_fifo   = (slv.add[9:8] == 2'b00) || (slv.add[9:8] == 2'b01 );
     assign decode_depth  = (slv.add[9:8] == 2'b10);
     assign decode_end    = (slv.add[9:8] == 2'b11);
+
+
+    always_ff @(posedge clk) read_d <= decode_fifo && slv.req && (slv.wen == READ);
+
 
     // Read data mux
     always_ff @(posedge clk) begin
