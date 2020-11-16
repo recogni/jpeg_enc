@@ -45,6 +45,7 @@ module jpeg_top_wrap (
     logic rd_full;
     logic jpeg_wr_gnt;
     logic eof_data_partial_ready;
+    logic disable_cycle;
 
     localparam IDLE = 0;
     localparam COUNTING = 1;
@@ -61,6 +62,7 @@ module jpeg_top_wrap (
         jpeg_clk_en        = 1'b0;
         last_block_next    = 1'b0;
         end_interrupt_next = 1'b0;
+        disable_cycle      = 1'b0;
 
         case ( write_state )
 
@@ -83,7 +85,7 @@ module jpeg_top_wrap (
                     jpeg_clk_en = 1'b1;
                     if ( pixel_counter == 0 ) begin
                         write_state_next   = PROCESSING;
-                        pixel_counter_next = 32;
+                        pixel_counter_next = 33;
                     end else begin
                         pixel_counter_next = pixel_counter - 1;
                     end
@@ -94,6 +96,7 @@ module jpeg_top_wrap (
             PROCESSING: begin
                 jpeg_clk_en = 1'b1;
                 if ( pixel_counter == 0 ) begin
+                    disable_cycle    = 1'b1;
                     write_state_next = last_block ? END_PROCESSING : IDLE;
                 end else begin
                     pixel_counter_next = pixel_counter - 1;
@@ -133,7 +136,7 @@ module jpeg_top_wrap (
     //
     logic jpeg_engine_en;
     assign jpeg_engine_en = ((write_state == COUNTING)    ||
-                             (write_state == PROCESSING)  ||
+                             ((write_state == PROCESSING) && !disable_cycle)  ||
                              (write_state == END_PROCESSING));
 
     // jpeg clock gate
