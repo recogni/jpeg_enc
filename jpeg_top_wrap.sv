@@ -166,6 +166,7 @@ module jpeg_top_wrap (
     //
     // A fixed threshold interrupt indicates a FIFO level
     logic [4:0] rd_depth;
+    logic [4:0] end_of_file_bitstream_count;
 
     logic read_d;
 
