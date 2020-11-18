@@ -60,7 +60,7 @@ module jpeg_top_wrap (
         pixel_counter_next = pixel_counter;
         jpeg_wr_gnt        = 1'b0;
         jpeg_clk_en        = 1'b0;
-        last_block_next    = 1'b0;
+        last_block_next    = last_block;
         end_interrupt_next = 1'b0;
         disable_cycle      = 1'b0;
 
