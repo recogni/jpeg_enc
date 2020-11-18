@@ -88,6 +88,7 @@ module jpeg_top_wrap (
                         pixel_counter_next = 33;
                     end else begin
                         pixel_counter_next = pixel_counter - 1;
+                        last_block_next    = 1'b0;
                     end
                 end
             end
