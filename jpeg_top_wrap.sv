@@ -35,6 +35,8 @@ module jpeg_top_wrap (
     logic last_block, last_block_next;
 
 
+    logic decode_end;
+   
     logic end_interrupt_next;
 
     //
@@ -141,7 +143,7 @@ module jpeg_top_wrap (
 
     // jpeg clock gate
     pd_icg i_jpeg_icg (
-        .clk_en          ( jpeg_clk_en || rst ),
+        .clk_en          ( jpeg_clk_en || rst || decode_end ),
         .ungated_clk_in  ( clk                ),
         .gated_clk       ( jpeg_clk_gated     )
     );
@@ -192,7 +194,7 @@ module jpeg_top_wrap (
 
     jpeg_top i_jtag_top (
         .clk                 ( jpeg_clk_gated     ),
-        .rst                 ( rst                ),
+        .rst                 ( rst || decode_end  ),
         .end_of_file_signal  ( last_block         ),
         .enable              ( jpeg_engine_en     ),
         .data_in             ( slv.wdata          ),
